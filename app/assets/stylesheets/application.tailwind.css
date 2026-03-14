@@ -1,0 +1,17 @@
+Plugins::FilePatch.define target: "app/assets/stylesheets/application.tailwind.css" do
+  replace_line containing: "--primary: oklch(0.205 0 0);",
+               with: <<~RUBY
+  /* light primary - soft red */
+  --primary: oklch(0.62 0.2 27);
+  --primary-foreground: oklch(0.0 0 0);
+  RUBY
+
+  replace_line containing: "--primary-foreground: oklch(0.985 0 0);",
+               with: "  --primary-foreground: oklch(0.0 0 0);"
+
+  replace_line containing: "--sidebar-primary: oklch(0.205 0 0);",
+               with: "  --sidebar-primary: oklch(0.62 0.2 27);"
+
+  replace_line containing: "--sidebar-primary-foreground: oklch(0.985 0 0);",
+               with: "  --sidebar-primary-foreground: oklch(0.0 0 0);"
+end
